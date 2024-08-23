@@ -194,35 +194,39 @@ def main():
     for keyword in keywords:
         province, isp, mcast = keyword.split("_")
         # 将省份转成英文小写
-        translator = Translator(from_lang='chinese', to_lang='english')
-        province_en = translator.translate(province)
-        province_en = province_en.lower()
+        # translator = Translator(from_lang='chinese', to_lang='english')
+        # province_en = translator.translate(province)
+        # province_en = province_en.lower()
+        province_en = ''
         # 根据不同的 isp 设置不同的 org 值
         org = "Chinanet"
         others = ''
-        if isp == "电信" and province_en == "shanghai":
-            org = "Chinanet"
+        if isp == "电信" and province == "上海":
+            org = "China Telecom Group"
             isp_en = "ctcc"
-            asn = "4811"
-        elif isp == "电信" and province_en == "sichuang":
-            org = "Chinanet"
-            isp_en = "ctcc"
-            asn = "4134"
-            others = '&& city="Chengdu" '
-        elif isp == "电信" and province_en != "sichuang":
-            org = "Chinanet"
-            isp_en = "ctcc"
-            asn = "4134"
-        elif isp == "联通" and province_en != "beijing":
-            isp_en = "cucc"
-            org = "CHINA UNICOM China169 Backbone"
-            asn = "4837"
-        elif isp == "联通" and province_en == "beijing":
-            asn = "4808"
-            isp_en = "cucc"
-        else:
-            asn = ""
-            org = ""
+            asn = "4812"
+            province_en = "shanghai"
+        else
+            continue
+        # elif isp == "电信" and province_en == "sichuang":
+        #     org = "Chinanet"
+        #     isp_en = "ctcc"
+        #     asn = "4134"
+        #     others = '&& city="Chengdu" '
+        # elif isp == "电信" and province_en != "sichuang":
+        #     org = "Chinanet"
+        #     isp_en = "ctcc"
+        #     asn = "4134"
+        # elif isp == "联通" and province_en != "beijing":
+        #     isp_en = "cucc"
+        #     org = "CHINA UNICOM China169 Backbone"
+        #     asn = "4837"
+        # elif isp == "联通" and province_en == "beijing":
+        #     asn = "4808"
+        #     isp_en = "cucc"
+        # else:
+        #     asn = ""
+        #     org = ""
 
         current_time = datetime.now()
         timeout_cnt = 0
