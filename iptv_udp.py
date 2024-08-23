@@ -206,7 +206,7 @@ def main():
             isp_en = "ctcc"
             asn = "4812"
             province_en = "shanghai"
-        else
+        else:
             continue
         # elif isp == "电信" and province_en == "sichuang":
         #     org = "Chinanet"
