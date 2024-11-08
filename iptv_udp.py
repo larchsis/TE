@@ -162,7 +162,7 @@ def main():
     files_name = []
 
     # 去除后缀名并保存至provinces_isps
-    for file in filter_files(files, ".txt"):
+    for file in filter_files(files, "上海_电信.txt"):
         name, extension = os.path.splitext(file)
         files_name.append(name)
 
@@ -200,7 +200,11 @@ def main():
         # 根据不同的 isp 设置不同的 org 值
         org = "Chinanet"
         others = ''
-        if isp == "电信" and province_en == "sichuang":
+        if isp == "电信" and province == "上海":
+            org = "China Telecom Group"
+            isp_en = "ctcc"
+            asn = "4812"
+        elif isp == "电信" and province_en == "sichuang":
             org = "Chinanet"
             isp_en = "ctcc"
             asn = "4134"
@@ -282,7 +286,7 @@ def main():
     files1 = 'outfiles'
     # 过滤TXT文件
     file_contents = []
-    for file_path in filter_files(files1, '.txt'):
+    for file_path in filter_files(files1, '上海_电信.txt'):
         with open('outfiles/' + file_path, 'r', encoding="utf-8") as file:
             content = file.read()
             file_contents.append(content)
